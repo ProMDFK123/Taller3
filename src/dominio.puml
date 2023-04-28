@@ -1,0 +1,32 @@
+@startuml
+Entity Empresa{
+    instrumentos
+}
+
+Entity Instrumentos{
+    código único
+    precio
+    stock
+    nombre
+    material
+}
+
+Entity Cuerda{
+    tipo de cuerdas
+    numero de cuerdas
+    tipo
+}
+
+Entity Percusion{
+    tipo de percusion
+    altura
+}
+
+Entity Viento{}
+
+Instrumentos^--Cuerda
+Instrumentos^--Viento
+Instrumentos^--Percusion
+
+Empresa"1"--"1..*"Instrumentos: posee >
+@enduml
