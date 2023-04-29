@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="instrumentos v2.0.0">
-      <change afterPath="$PROJECT_DIR$/src/system/Sistema.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="instrumentos v2.1.0">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/stdlib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taller3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Taller3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Instrumento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Instrumento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Sistema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/SistemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +44,10 @@
     "DefaultPlantUmlFileTemplate": "UML Sequence",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/gabo/Escritorio/Universidad/2023-I/Programación Avanzada/stdlib.jar",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
@@ -139,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682794780006</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="instrumentos v2.1.0">
+      <created>1682796481557</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682796481558</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -152,6 +164,7 @@
     <MESSAGE value="instrumento &amp; array" />
     <MESSAGE value="instrumentos v1.0.0" />
     <MESSAGE value="instrumentos v2.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="instrumentos v2.0.0" />
+    <MESSAGE value="instrumentos v2.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="instrumentos v2.1.0" />
   </component>
 </project>

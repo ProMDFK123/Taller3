@@ -12,6 +12,7 @@ package objects{
 
         +Instrumento(codigo: String, precio: int, stock: int, nombre: String, material: String)
         +get's()
+        +setStock(stock: int): void
     }
 
     Class Cuerda{

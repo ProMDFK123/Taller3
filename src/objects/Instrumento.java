@@ -53,4 +53,8 @@ public class Instrumento {
     public String getMaterial() {
         return material;
     }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 }
