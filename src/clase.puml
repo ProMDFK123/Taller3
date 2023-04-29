@@ -4,7 +4,7 @@ skin rose
 
 package objects{
     Class Instrumento{
-        -codigoUnico: String
+        -codigo: String
         -precio: int
         -stock: int
         -nombre: String
