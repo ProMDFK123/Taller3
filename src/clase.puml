@@ -51,6 +51,9 @@ package contenedores{
         +ListaInstrumento(maximo: int)
         +getCantInstrumentos(): int
         +getMaximo(): int
+        +agregar(instrumento: Instrumento): void
+        +existe(codigo: String): boolean
+        +buscar(codigo: String): Instrumento
     }
 }
 

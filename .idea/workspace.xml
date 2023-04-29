@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="instrumentos v1.0.0">
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="instrumentos v2.0.0">
+      <change afterPath="$PROJECT_DIR$/src/system/Sistema.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Sequence" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -128,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682786647600</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="instrumentos v2.0.0">
+      <created>1682794780006</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682794780006</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -140,6 +151,7 @@
     <MESSAGE value="diagrama de clases v0.1.2" />
     <MESSAGE value="instrumento &amp; array" />
     <MESSAGE value="instrumentos v1.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="instrumentos v1.0.0" />
+    <MESSAGE value="instrumentos v2.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="instrumentos v2.0.0" />
   </component>
 </project>
