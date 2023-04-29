@@ -12,7 +12,6 @@ package objects{
 
         +Instrumento(codigo: String, precio: int, stock: int, nombre: String, material: String)
         +get's()
-        +set's()
     }
 
     Class Cuerda{
@@ -22,7 +21,6 @@ package objects{
 
         +Cuerda(codigo: String, precio: int, stock: int, nombre: String, material: String, tipoCuerda: String, cantidadCuerdas: int, tipo: String)
         +get's()
-        +set's()
     }
 
     Class Percusion{
@@ -31,13 +29,12 @@ package objects{
 
         +Percusion(codigo: String, precio: int, stock: int, nombre: String, material: String, tipoPercusion: String, altura: String)
         +get's()
-        +set's()
+
     }
 
     Class Viento{
         +Viento(codigo: String, precio: int, stock: int, nombre: String, material: String)
         +get's()
-        +set's()
     }
 }
 
