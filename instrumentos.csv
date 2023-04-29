@@ -1,0 +1,14 @@
+Instrumento,Codigo,Precio,Stock,Nombre,Material,Tipo,Cuerda/Alto,Sonido
+Percusion,YAES-REWS-AX6J-UO5S,,23,Cajon,Madera,Idiofono,Indefinida,
+Percusion,36AS-0BZ2-GM7B-HYHL,,3,Campanas,Metal,Idiofono,Definida,
+Cuerda,POAP-X4X8-FVCO-G89W,,43,Violin,Madera,Nylon,4,Acustico
+Cuerda,D9SQ-5DKU-XD2K-2FK1,,12,Arpa,Metal,Tripa,11,Acustico
+Percusion,C4B3-R043-80GP-9PHD,,21,Tubulares,Metal,Idiofono,Definida,
+Percusion,SJ3V-NAT6-DM0E-HWFS,,2,Bongo,Piel,Membranofono,Indefinida,
+Percusion,IMI7-91IE-5ZQS-INJP,,3,Bombo,Piel,Membranofono,Indefinida,
+Cuerda,PPHJ-RIP2-5KWI-XBRY,,10,Bajo,Metal,Acero,4,Electrico
+Cuerda,TOQG-IT2M-0HKX-0RDQ,,9,Guitarra,Madera,Nylon,6,Electrico
+Viento,BEAQ-XVUM-UMZ9-VOQ3,,2,Saxofon,Metal,,,
+Viento,B9E9-LI0C-4QWX-XISN,,9,Trompeta,Metal,,,
+Viento,WA5Z-2LMI-4JU3-RTUU,,1,Flauta Traversa,Metal,,,
+Viento,7MVJ-AXA9-GUM6-JLP2,,3,Clarinete,Madera,,,
