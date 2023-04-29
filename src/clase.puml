@@ -1,0 +1,72 @@
+@startuml
+left to right direction
+skin rose
+
+Class Instrumento{
+    -codigoUnico: String
+    -precio: int
+    -stock: int
+    -nombre: String
+    -material: String
+
+    +Instrumento(codigoUnico: String, precio: int, stock: int, nombre: String, material: String)
+    +get's()
+    +set's()
+}
+
+Class Cuerda{
+    -tipoCuerda: String
+    -cantidadCuerdas: int
+    -tipo: String
+
+    +Cuerda(codigoUnico: String, precio: int, stock: int, nombre: String, material: String, tipoCuerda: String, cantidadCuerdas: int, tipo: String)
+    +get's()
+    +set's()
+}
+
+Class Percusion{
+    -tipoPercusion: String
+    -altura: String
+
+    +Percusion(codigoUnico: String, precio: int, stock: int, nombre: String, material: String, tipoPercusion: String, altura: String)
+    +get's()
+    +set's()
+}
+
+Class Viento{
+    +Viento(codigoUnico: String, precio: int, stock: int, nombre: String, material: String)
+    +get's()
+    +set's()
+}
+
+Instrumento^--Cuerda
+Instrumento^--Percusion
+Instrumento^--Viento
+
+Class ListaInstrumento{
+    -instrumentos: Instrumento[]
+    -cantInstrumentos: int
+    -maximo: int
+
+    +ListaInstrumento(maximo: int)
+    +getCantInstrumentos(): int
+    +getMaximo(): int
+}
+
+Instrumento o--* ListaInstrumento
+
+interface Sistema <<interface>>{}
+
+Class SistemaImpl{
+    -totalInstrumentos: ListaInstrumento
+    -instrumentosCuerda: ListaInstrumento
+    -instrumentosPercusion: ListaInstrumento
+    -instrumentosViento: ListaInstrumento
+
+    +SistemaImpl()
+    +menu(): void
+}
+
+Sistema^..SistemaImpl: implemets
+SistemaImpl"1"--"*"Instrumento:  posee >
+@enduml
