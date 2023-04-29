@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="modelo de dominio">
-      <change afterPath="$PROJECT_DIR$/src/clase.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="diagrama de clases v0.1.1">
+      <change beforePath="$PROJECT_DIR$/src/clase.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clase.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +69,29 @@
       <option name="project" value="LOCAL" />
       <updated>1682714996532</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="diagrama de clases v0.1.0">
+      <created>1682784460388</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682784460388</updated>
+    </task>
+    <task id="LOCAL-00005" summary="diagrama de clases v0.1.1">
+      <created>1682784722939</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682784722939</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="modelo de dominio" />
-    <option name="LAST_COMMIT_MESSAGE" value="modelo de dominio" />
+    <MESSAGE value="diagrama de clases v0.1.0" />
+    <MESSAGE value="diagrama de clases v0.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="diagrama de clases v0.1.1" />
   </component>
 </project>
