@@ -1,3 +1,8 @@
+import system.Sistema;
+import system.SistemaImpl;
+
+import java.io.IOException;
+
 /**
  * Taller III: Beat the Rythm
  *
@@ -5,7 +10,7 @@
  */
 
 public class Main {
-    public static void main(String[] args) {
-        //ToDo: Agregar los contratos la interface en clase.puml
+    public static void main(String[] args) throws IOException {
+        Sistema sistema = new SistemaImpl();
     }
 }
