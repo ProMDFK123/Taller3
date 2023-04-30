@@ -55,6 +55,7 @@ package contenedores{
         +agregar(instrumento: Instrumento): void
         +existe(codigo: String): boolean
         +buscar(codigo: String): Instrumento
+        +buscar(posicion: int): Instrumento
     }
 }
 
@@ -64,7 +65,7 @@ package system{
     interface Sistema <<interface>>{
         +agregarInstrumento(direccionArchivo: String): void
         +venderInstrumentoImpl(codigo: String): void
-        +consultarInventario(): String
+        +consultarInventario(): void
         +cierre(estado: boolean): boolean
     }
 

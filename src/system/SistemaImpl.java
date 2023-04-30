@@ -58,6 +58,9 @@ public class SistemaImpl implements Sistema{
             String opcion = StdIn.readString();
             switch (opcion) {
                 case "1" -> venderInstrumento();
+                case "2" -> consultarInventario();
+                case "3" -> cierre(encendido);
+                default -> System.out.println("Opción Invalida, intente nuevamente.");
             }
         }
     }
@@ -139,9 +142,178 @@ public class SistemaImpl implements Sistema{
         instrumentoVendido.setStock(instrumentoVendido.getStock()-1);
     }
 
+    /**
+     * Método que despliega el inventario.
+     */
     @Override
-    public String consultarInventario() {
-        return null;
+    public void consultarInventario() {
+        //Menú de opciones.
+        StringBuilder menu = new StringBuilder();
+        //Opción del usuario.
+        String opcion;
+
+        //Menú.
+        menu.append("========================\n");
+        menu.append("= CONSULTAR INVENTARIO =\n");
+        menu.append("========================\n");
+        menu.append("\n");
+        menu.append("1. Ver Todo.\n");
+        menu.append("2. Ver Por Tipo.\n");
+        menu.append("3. Ver Producto en Especifico.");
+        menu.append("4. Volver Atrás\n");
+        menu.append("Opción: ");
+
+        //Registro de la opción.
+        opcion = StdIn.readString();
+        switch (opcion){
+            case "1" -> verTodo(this.totalInstrumentos);
+            case "2" -> verTipo();
+            case "3" -> verEspecifico(this.totalInstrumentos);
+            case "4" -> {return;}
+            default -> System.out.println("Opción invalida, intente nuevamente.");
+        }
+    }
+
+    /**
+     * Método para buscar un instrumento en el catálogo dado su código.
+     * @param lista en donde buscar el instrumento.
+     */
+    public void verEspecifico(ListaInstrumento lista){
+        //Código del instrumento a buscar.
+        String code;
+
+        //String con los datos a imprimir.
+        StringBuilder inventario = new StringBuilder();
+
+        System.out.println("Ingrese el código del instrumento a buscar: ");
+        code = StdIn.readString();
+        //Recibe el código del instrumento y lo busca.
+        Instrumento instrumento = lista.buscar(code);
+
+        //Analiza el instrumento para castearlo y asi imprimir sus datos.
+        if(instrumento.getNombre().equals("Guitarra") || instrumento.getNombre().equals("Bajo") || instrumento.getNombre().equals("Violin") || instrumento.getNombre().equals("Arpa")){
+            Cuerda cuerda = (Cuerda) instrumento;
+
+            inventario.append("Codigo: "+cuerda.getCodigo()+"\n");
+            inventario.append("Precio: "+cuerda.getPrecio()+"\n");
+            inventario.append("Stock: "+cuerda.getStock()+"\n");
+            inventario.append("Instrumento: "+cuerda.getNombre()+"\n");
+            inventario.append("Tipo de Cuerda: "+cuerda.getTipoCuerda()+"\n");
+            inventario.append("Número de Cuerdas: "+cuerda.getCantidadCuerdas()+"\n");
+            inventario.append("Material: "+cuerda.getMaterial()+"\n");
+            inventario.append("Tipo de Sonido: "+cuerda.getTipo()+"\n");
+            inventario.append("==================================================\n");
+            System.out.println(inventario);
+        } else if (instrumento.getNombre().equals("Bongo") || instrumento.getNombre().equals("Cajon") || instrumento.getNombre().equals("Campanas") || instrumento.getNombre().equals("Tubulares") || instrumento.getNombre().equals("Bombo")) {
+            Percusion percusion = (Percusion) instrumento;
+
+            inventario.append("Codigo: "+percusion.getCodigo()+"\n");
+            inventario.append("Precio: "+percusion.getPrecio()+"\n");
+            inventario.append("Stock: "+percusion.getStock()+"\n");
+            inventario.append("Instrumento: "+percusion.getNombre()+"\n");
+            inventario.append("Tipo de Percusion: "+percusion.getTipoPercusion()+"\n");
+            inventario.append("Número de Cuerdas: "+percusion.getAltura()+"\n");
+            inventario.append("Material: "+percusion.getMaterial()+"\n");
+            inventario.append("==================================================\n");
+            System.out.println(inventario);
+        } else if (instrumento.getNombre().equals("Trompeta") || instrumento.getNombre().equals("Saxofon") || instrumento.getNombre().equals("Clarinete") || instrumento.getNombre().equals("Flauta Traversa")) {
+            Viento viento = (Viento) instrumento;
+
+            inventario.append("Codigo: "+viento.getCodigo()+"\n");
+            inventario.append("Precio: "+viento.getPrecio()+"\n");
+            inventario.append("Stock: "+viento.getStock()+"\n");
+            inventario.append("Instrumento: "+viento.getNombre()+"\n");
+            inventario.append("Material: "+viento.getMaterial()+"\n");
+            inventario.append("==================================================\n");
+            System.out.println(inventario);
+        }
+    }
+
+    /**
+     * Método que despliega un submenú para ver el catálogo por
+     * un cierto tipo dado.
+     */
+    public void verTipo(){
+        //Opción del usuario.
+        String opcion;
+
+        //Menú.
+        StringBuilder subMenu = new StringBuilder();
+        subMenu.append("================\n");
+        subMenu.append("= VER POR TIPO =\n");
+        subMenu.append("================\n");
+        subMenu.append("\n");
+        subMenu.append("1. Instrumentos de Cuerda.\n");
+        subMenu.append("2. Instrumentos de Percusión.\n");
+        subMenu.append("3. Instrumentos de Viento.\n");
+        subMenu.append("4. Volver Atrás.\n");
+        subMenu.append("Opción: ");
+
+        //Registro de la opción.
+        opcion = StdIn.readString();
+        switch (opcion){
+            case "1" -> verTodo(this.instrumentosCuerda);
+            case "2" -> verTodo(this.instrumentosPercusion);
+            case "3" -> verTodo(this.instrumentosViento);
+            case "4" -> {return;}
+            default -> System.out.println("Opción Invalida, intente nuevamente.");
+        }
+    }
+
+    /**
+     * Método auxiliar que imprime el catálogo completo.
+     * @param lista a recorrer.
+     */
+    public void verTodo(ListaInstrumento lista){
+        //Lo que se va a imprimir.
+        StringBuilder inventario = new StringBuilder();
+
+        //Recorre la lista.
+        for(int i=0;i<lista.getCantInstrumentos();i++){
+            //Guarda un elemento.
+            Instrumento instrumento = lista.buscar(i);
+
+            /*
+            Revisa el tipo de instrumento, lo castea, obtiene los datos necesarios
+            y los imprime.
+             */
+            if(instrumento.getNombre().equals("Guitarra") || instrumento.getNombre().equals("Bajo") || instrumento.getNombre().equals("Violin") || instrumento.getNombre().equals("Arpa")){
+                Cuerda cuerda = (Cuerda) instrumento;
+
+                inventario.append("Codigo: "+cuerda.getCodigo()+"\n");
+                inventario.append("Precio: "+cuerda.getPrecio()+"\n");
+                inventario.append("Stock: "+cuerda.getStock()+"\n");
+                inventario.append("Instrumento: "+cuerda.getNombre()+"\n");
+                inventario.append("Tipo de Cuerda: "+cuerda.getTipoCuerda()+"\n");
+                inventario.append("Número de Cuerdas: "+cuerda.getCantidadCuerdas()+"\n");
+                inventario.append("Material: "+cuerda.getMaterial()+"\n");
+                inventario.append("Tipo de Sonido: "+cuerda.getTipo()+"\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            } else if (instrumento.getNombre().equals("Bongo") || instrumento.getNombre().equals("Cajon") || instrumento.getNombre().equals("Campanas") || instrumento.getNombre().equals("Tubulares") || instrumento.getNombre().equals("Bombo")) {
+                Percusion percusion = (Percusion) instrumento;
+
+                inventario.append("Codigo: "+percusion.getCodigo()+"\n");
+                inventario.append("Precio: "+percusion.getPrecio()+"\n");
+                inventario.append("Stock: "+percusion.getStock()+"\n");
+                inventario.append("Instrumento: "+percusion.getNombre()+"\n");
+                inventario.append("Tipo de Percusion: "+percusion.getTipoPercusion()+"\n");
+                inventario.append("Número de Cuerdas: "+percusion.getAltura()+"\n");
+                inventario.append("Material: "+percusion.getMaterial()+"\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            } else if (instrumento.getNombre().equals("Trompeta") || instrumento.getNombre().equals("Saxofon") || instrumento.getNombre().equals("Clarinete") || instrumento.getNombre().equals("Flauta Traversa")) {
+                Viento viento = (Viento) instrumento;
+
+                inventario.append("Codigo: "+viento.getCodigo()+"\n");
+                inventario.append("Precio: "+viento.getPrecio()+"\n");
+                inventario.append("Stock: "+viento.getStock()+"\n");
+                inventario.append("Instrumento: "+viento.getNombre()+"\n");
+                inventario.append("Material: "+viento.getMaterial()+"\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            }
+        }
     }
 
     /**

@@ -85,4 +85,11 @@ public class ListaInstrumento {
         this.instrumentos[this.cantInstrumentos]=instrumento;
         this.cantInstrumentos++;
     }
+
+    /**
+     * Método que busca un instrumento dada su posición.
+     * @param posicion a encontrar.
+     * @return el instrumento en la posición dada.
+     */
+    public Instrumento buscar(int posicion){return this.instrumentos[posicion];}
 }
