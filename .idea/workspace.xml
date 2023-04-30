@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="system v0.1.1">
-      <change afterPath="$PROJECT_DIR$/src/csv/.~lock.instrumentos.csv#" afterDir="false" />
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="system v0.2.1">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/opencsv_5_7_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csv/instrumentos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv/instrumentos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taller3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Taller3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clase.puml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clase.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Sistema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/SistemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +176,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682868408394</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="system v0.2.0">
+      <created>1682873769320</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682873769320</updated>
+    </task>
+    <task id="LOCAL-00018" summary="system v0.2.1">
+      <created>1682873928669</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682873928669</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,7 +207,9 @@
     <MESSAGE value="instrumentos v2.1.1" />
     <MESSAGE value="system v0.1.0" />
     <MESSAGE value="system v0.1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="system v0.1.1" />
+    <MESSAGE value="system v0.2.0" />
+    <MESSAGE value="system v0.2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="system v0.2.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

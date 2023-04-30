@@ -61,7 +61,12 @@ package contenedores{
 Instrumento o--* ListaInstrumento
 
 package system{
-    interface Sistema <<interface>>{}
+    interface Sistema <<interface>>{
+        +agregarInstrumento(direccionArchivo: String): void
+        +venderInstrumentoImpl(codigo: String): void
+        +consultarInventario(): String
+        +cierre(estado: boolean): boolean
+    }
 
     Class SistemaImpl{
         -totalInstrumentos: ListaInstrumento
