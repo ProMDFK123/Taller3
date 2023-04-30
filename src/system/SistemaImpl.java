@@ -1,6 +1,5 @@
 package system;
 
-import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import contenedores.ListaInstrumento;
 import edu.princeton.cs.stdlib.StdIn;
@@ -9,7 +8,7 @@ import objects.Instrumento;
 import objects.Percusion;
 import objects.Viento;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -31,7 +30,7 @@ public class SistemaImpl implements Sistema{
      * @throws IOException
      * @throws CsvValidationException
      */
-    public SistemaImpl() throws IOException, CsvValidationException {
+    public SistemaImpl() throws IOException {
         totalInstrumentos = new ListaInstrumento(100);
         instrumentosCuerda = new ListaInstrumento(100);
         instrumentosPercusion = new ListaInstrumento(100);
@@ -44,7 +43,7 @@ public class SistemaImpl implements Sistema{
      * @throws IOException
      * @throws CsvValidationException
      */
-    public void menu() throws IOException, CsvValidationException {
+    public void menu() throws IOException {
         //variable booleana que comprueba si el programa esta encendido o no.
         boolean encendido = true;
 
@@ -66,37 +65,42 @@ public class SistemaImpl implements Sistema{
     }
 
     /**
-     * Método que carga y guarda en arreglos los diversos datos.
+     * Método que carga y guarda en arreglos los diversos datos
+     * ubicados en un archivo de tipo 'valores separados por coma' (CVS).
      * @param archivo a abrir.
      * @throws IOException
      * @throws CsvValidationException
      */
     @Override
-    public void agregarInstrumento(String archivo) throws IOException, CsvValidationException {
-        CSVReader csvReader = new CSVReader(new FileReader(archivo));
-        String[] fila = null;
+    public void agregarInstrumento(String archivo) throws IOException{
+        //
+        BufferedReader lectura = new BufferedReader(new FileReader(archivo));
+        String linea = lectura.readLine();
 
-        //recorre cada linea de archivo
-        while ((fila = csvReader.readNext())!=null){
-            //convierte el 3er y 4to dato de cada linea en variables de tipo integer.
-            int precio = Integer.parseInt(fila[2]);
-            int stock = Integer.parseInt(fila[3]);
+        while(linea!=null){
+            String[] atributos = linea.split(",");
+            int precio = Integer.parseInt(atributos[2]);
+            int stock = Integer.parseInt(atributos[3]);
 
-            //valida el tipo de instrumento, lo genera, y lo guarda en las correspondientes listas.
-            if(fila[0]=="Cuerda"){
-                int cantidadCuerdas = Integer.parseInt(fila[7]);
-                Instrumento instrumento = new Cuerda(fila[1], precio,stock,fila[4],fila[5],fila[6], cantidadCuerdas,fila[8]);
-                this.totalInstrumentos.agregar(instrumento);
-                this.instrumentosCuerda.agregar(instrumento);
-            } else if (fila[0]=="Percusion") {
-                Instrumento instrumento = new Percusion(fila[1], precio,stock,fila[4],fila[5],fila[6],fila[7]);
-                this.totalInstrumentos.agregar(instrumento);
-                this.instrumentosPercusion.agregar(instrumento);
-            } else if (fila[0]=="Viento") {
-                Instrumento instrumento = new Viento(fila[1], precio,stock,fila[4],fila[5]);
-                this.totalInstrumentos.agregar(instrumento);
-                this.instrumentosViento.agregar(instrumento);
+            if(atributos[0]=="Viento"){
+                Instrumento viento = new Viento(atributos[1],precio,stock,atributos[4],atributos[5]);
+                this.totalInstrumentos.agregar(viento);
+                this.instrumentosViento.agregar(viento);
+            } else if (atributos[0]=="Cuerda") {
+                int cantCuerdas = Integer.parseInt(atributos[7]);
+                Instrumento cuerda = new Cuerda(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6], cantCuerdas, atributos[8]);
+                this.totalInstrumentos.agregar(cuerda);
+                this.instrumentosCuerda.agregar(cuerda);
+            } else if (atributos[0]=="Percusion") {
+                Instrumento percusion = new Percusion(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6],atributos[7]);
+                this.totalInstrumentos.agregar(percusion);
+                this.instrumentosPercusion.agregar(percusion);
             }
+            linea = lectura.readLine();
+        }
+
+        if(lectura!=null){
+            lectura.close();
         }
     }
 

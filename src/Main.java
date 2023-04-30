@@ -1,4 +1,3 @@
-import com.opencsv.exceptions.CsvValidationException;
 import system.Sistema;
 import system.SistemaImpl;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
  */
 
 public class Main {
-    public static void main(String[] args) throws IOException, CsvValidationException {
+    public static void main(String[] args) throws IOException{
         Sistema sistema = new SistemaImpl();
     }
 }

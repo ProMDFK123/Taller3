@@ -1,14 +1,14 @@
 Instrumento,Codigo,Precio,Stock,Nombre,Material,Tipo,Cuerda/Alto,Sonido
-Percusion,YAES-REWS-AX6J-UO5S,75000,23,Cajon,Madera,Idiofono,Indefinida,
-Percusion,36AS-0BZ2-GM7B-HYHL,25000,3,Campanas,Metal,Idiofono,Definida,
+Percusion,YAES-REWS-AX6J-UO5S,75000,23,Cajon,Madera,Idiofono,Indefinida,null
+Percusion,36AS-0BZ2-GM7B-HYHL,25000,3,Campanas,Metal,Idiofono,Definida,null
 Cuerda,POAP-X4X8-FVCO-G89W,80000,43,Violin,Madera,Nylon,4,Acustico
 Cuerda,D9SQ-5DKU-XD2K-2FK1,55000,12,Arpa,Metal,Tripa,11,Acustico
-Percusion,C4B3-R043-80GP-9PHD,72000,21,Tubulares,Metal,Idiofono,Definida,
-Percusion,SJ3V-NAT6-DM0E-HWFS,40000,2,Bongo,Piel,Membranofono,Indefinida,
-Percusion,IMI7-91IE-5ZQS-INJP,100000,3,Bombo,Piel,Membranofono,Indefinida,
+Percusion,C4B3-R043-80GP-9PHD,72000,21,Tubulares,Metal,Idiofono,Definida,null
+Percusion,SJ3V-NAT6-DM0E-HWFS,40000,2,Bongo,Piel,Membranofono,Indefinida,null
+Percusion,IMI7-91IE-5ZQS-INJP,100000,3,Bombo,Piel,Membranofono,Indefinida,null
 Cuerda,PPHJ-RIP2-5KWI-XBRY,170000,10,Bajo,Metal,Acero,4,Electrico
 Cuerda,TOQG-IT2M-0HKX-0RDQ,120000,9,Guitarra,Madera,Nylon,6,Electrico
-Viento,BEAQ-XVUM-UMZ9-VOQ3,250000,2,Saxofon,Metal,,,
-Viento,B9E9-LI0C-4QWX-XISN,575000,9,Trompeta,Metal,,,
-Viento,WA5Z-2LMI-4JU3-RTUU,150000,1,Flauta Traversa,Metal,,,
-Viento,7MVJ-AXA9-GUM6-JLP2,900000,3,Clarinete,Madera,,,
+Viento,BEAQ-XVUM-UMZ9-VOQ3,250000,2,Saxofon,Metal,null,null,null
+Viento,B9E9-LI0C-4QWX-XISN,575000,9,Trompeta,Metal,null,null,null
+Viento,WA5Z-2LMI-4JU3-RTUU,150000,1,Flauta Traversa,Metal,null,null,null
+Viento,7MVJ-AXA9-GUM6-JLP2,900000,3,Clarinete,Madera,null,null,null
