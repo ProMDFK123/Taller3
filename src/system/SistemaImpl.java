@@ -79,19 +79,23 @@ public class SistemaImpl implements Sistema{
 
         while(linea!=null){
             String[] atributos = linea.split(",");
-            int precio = Integer.parseInt(atributos[2]);
-            int stock = Integer.parseInt(atributos[3]);
 
             if(atributos[0]=="Viento"){
+                int precio = Integer.parseInt(atributos[2]);
+                int stock = Integer.parseInt(atributos[3]);
                 Instrumento viento = new Viento(atributos[1],precio,stock,atributos[4],atributos[5]);
                 this.totalInstrumentos.agregar(viento);
                 this.instrumentosViento.agregar(viento);
             } else if (atributos[0]=="Cuerda") {
+                int precio = Integer.parseInt(atributos[2]);
+                int stock = Integer.parseInt(atributos[3]);
                 int cantCuerdas = Integer.parseInt(atributos[7]);
                 Instrumento cuerda = new Cuerda(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6], cantCuerdas, atributos[8]);
                 this.totalInstrumentos.agregar(cuerda);
                 this.instrumentosCuerda.agregar(cuerda);
             } else if (atributos[0]=="Percusion") {
+                int precio = Integer.parseInt(atributos[2]);
+                int stock = Integer.parseInt(atributos[3]);
                 Instrumento percusion = new Percusion(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6],atributos[7]);
                 this.totalInstrumentos.agregar(percusion);
                 this.instrumentosPercusion.agregar(percusion);
