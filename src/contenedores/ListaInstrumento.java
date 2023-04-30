@@ -24,13 +24,6 @@ public class ListaInstrumento {
     }
 
     /**
-     * @return la cantidad maxima de la lista.
-     */
-    public int getMaximo() {
-        return maximo;
-    }
-
-    /**
      * @return la cantidad de elementos en la lista.
      */
     public int getCantInstrumentos() {

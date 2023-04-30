@@ -35,7 +35,6 @@ package objects{
 
     Class Viento{
         +Viento(codigo: String, precio: int, stock: int, nombre: String, material: String)
-        +get's()
     }
 }
 
@@ -51,7 +50,6 @@ package contenedores{
 
         +ListaInstrumento(maximo: int)
         +getCantInstrumentos(): int
-        +getMaximo(): int
         +agregar(instrumento: Instrumento): void
         +existe(codigo: String): boolean
         +buscar(codigo: String): Instrumento
@@ -77,6 +75,11 @@ package system{
 
         +SistemaImpl()
         +menu(): void
+        +verEspecifico(lista: ListaInstrumento): void
+        +verTipo(): void
+        +verTodo(lista: ListaInstrumento): void
+        +generarBoleta(instrumento: Instrumento): void
+        +venderInstrumento(): void
     }
 }
 
