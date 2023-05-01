@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SistemaImpl implements Sistema{
     //lista de todos los instrumentos.
     private final ListaInstrumento totalInstrumentos;
-    //lista que gaurda todos los instrumentos de cuerda.
+    //lista que guarda todos los instrumentos de cuerda.
     private final ListaInstrumento instrumentosCuerda;
     //lista que guarda todos los instrumentos de percusión.
     private final ListaInstrumento instrumentosPercusion;
@@ -42,7 +42,7 @@ public class SistemaImpl implements Sistema{
      * @throws IOException en caso de error.
      */
     public void menu() throws IOException {
-        //variable booleana que comprueba si el programa esta encendido o no.
+        //variable booleana que comprueba si el programa está encendido o no.
         boolean encendido = true;
 
         //carga el archivo.
@@ -54,7 +54,7 @@ public class SistemaImpl implements Sistema{
             //menu que aparece al inicial el programa.
             this.mainmenu();
 
-            //registra la opcion escogida por el usuario.
+            //registra la opción escogida por el usuario.
             String opcion = StdIn.readString();
             switch (opcion) {
                 case "1" -> venderInstrumento();
@@ -79,7 +79,7 @@ public class SistemaImpl implements Sistema{
         String linea = lectura.readLine();
 
         while(linea!=null){
-            //Separa cada linea
+            //Separa cada línea
             String[] atributos = linea.split(",");
 
             /*
@@ -125,10 +125,10 @@ public class SistemaImpl implements Sistema{
     public void venderInstrumentoImpl(String codigo) {
         //Revisa si el instrumento existe o no.
         if(!this.totalInstrumentos.existe(codigo)){
-            System.out.println("El codigo ingresado no corresponde a ningun instrumento registrado.");
+            System.out.println("El código ingresado no corresponde a ningún instrumento registrado.");
             return;
         }
-        //El instrumento existe y es guardado en una variable auxilar.
+        //El instrumento existe y es guardado en una variable auxiliar.
         Instrumento instrumentoVendido = this.totalInstrumentos.buscar(codigo);
 
         //Valida si aun hay stock de dicho instrumento o no.
@@ -210,11 +210,11 @@ public class SistemaImpl implements Sistema{
             }
             case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
                 Percusion percusion = (Percusion) instrumento;
-                inventario.append("Codigo: ").append(percusion.getCodigo()).append("\n");
+                inventario.append("Código: ").append(percusion.getCodigo()).append("\n");
                 inventario.append("Precio: ").append(percusion.getPrecio()).append("\n");
                 inventario.append("Stock: ").append(percusion.getStock()).append("\n");
                 inventario.append("Instrumento: ").append(percusion.getNombre()).append("\n");
-                inventario.append("Tipo de Percusion: ").append(percusion.getTipoPercusion()).append("\n");
+                inventario.append("Tipo de Percusión: ").append(percusion.getTipoPercusion()).append("\n");
                 inventario.append("Número de Cuerdas: ").append(percusion.getAltura()).append("\n");
                 inventario.append("Material: ").append(percusion.getMaterial()).append("\n");
                 inventario.append("==================================================\n");
@@ -222,7 +222,7 @@ public class SistemaImpl implements Sistema{
             }
             case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
                 Viento viento = (Viento) instrumento;
-                inventario.append("Codigo: ").append(viento.getCodigo()).append("\n");
+                inventario.append("Código: ").append(viento.getCodigo()).append("\n");
                 inventario.append("Precio: ").append(viento.getPrecio()).append("\n");
                 inventario.append("Stock: ").append(viento.getStock()).append("\n");
                 inventario.append("Instrumento: ").append(viento.getNombre()).append("\n");
@@ -288,7 +288,7 @@ public class SistemaImpl implements Sistema{
             switch (instrumento.getNombre()) {
                 case "Guitarra", "Bajo", "Violin", "Arpa" -> {
                     Cuerda cuerda = (Cuerda) instrumento;
-                    inventario.append("Codigo: ").append(cuerda.getCodigo()).append("\n");
+                    inventario.append("Código: ").append(cuerda.getCodigo()).append("\n");
                     inventario.append("Precio: ").append(cuerda.getPrecio()).append("\n");
                     inventario.append("Stock: ").append(cuerda.getStock()).append("\n");
                     inventario.append("Instrumento: ").append(cuerda.getNombre()).append("\n");
@@ -301,11 +301,11 @@ public class SistemaImpl implements Sistema{
                 }
                 case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
                     Percusion percusion = (Percusion) instrumento;
-                    inventario.append("Codigo: ").append(percusion.getCodigo()).append("\n");
+                    inventario.append("Código: ").append(percusion.getCodigo()).append("\n");
                     inventario.append("Precio: ").append(percusion.getPrecio()).append("\n");
                     inventario.append("Stock: ").append(percusion.getStock()).append("\n");
                     inventario.append("Instrumento: ").append(percusion.getNombre()).append("\n");
-                    inventario.append("Tipo de Percusion: ").append(percusion.getTipoPercusion()).append("\n");
+                    inventario.append("Tipo de Percusión: ").append(percusion.getTipoPercusion()).append("\n");
                     inventario.append("Número de Cuerdas: ").append(percusion.getAltura()).append("\n");
                     inventario.append("Material: ").append(percusion.getMaterial()).append("\n");
                     inventario.append("==================================================\n");
@@ -313,7 +313,7 @@ public class SistemaImpl implements Sistema{
                 }
                 case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
                     Viento viento = (Viento) instrumento;
-                    inventario.append("Codigo: ").append(viento.getCodigo()).append("\n");
+                    inventario.append("Código: ").append(viento.getCodigo()).append("\n");
                     inventario.append("Precio: ").append(viento.getPrecio()).append("\n");
                     inventario.append("Stock: ").append(viento.getStock()).append("\n");
                     inventario.append("Instrumento: ").append(viento.getNombre()).append("\n");
@@ -327,11 +327,13 @@ public class SistemaImpl implements Sistema{
 
     /**
      * Método para cerrar el programa.
-     * @param estado del prograna
-     * @return false para que el programa finalice
+     *
+     * @param estado del programa
      */
     @Override
-    public boolean cierre(boolean estado) {return false;}
+    public void cierre(boolean estado) {
+        estado=false;
+    }
 
     /**
      * Método auxiliar que despliega el menu principal del programa
@@ -364,7 +366,7 @@ public class SistemaImpl implements Sistema{
                 String ci = CI[i];
                 String vendedor = vendedores[i];
 
-                //generación de llaboleta.
+                //generación de la boleta.
                 String boleta = "BEAT THE RYTHM\n" +
                         "----------------------------------------------------------------\n" +
                         "RUC O CI: " + ci + "\n" +
@@ -387,7 +389,7 @@ public class SistemaImpl implements Sistema{
      * Método del menú principal de una venta.
      */
     public void venderInstrumento(){
-        //codigo a ingresar.
+        //código a ingresar.
         String code;
 
         //menú principal.

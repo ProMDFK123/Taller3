@@ -34,7 +34,7 @@ public class ListaInstrumento {
     }
 
     /**
-     * Método que busca un instrumento dado el codigo de este
+     * Método que busca un instrumento dado el código de este
      *
      * @param codigo del instrumento a buscar.
      * @return el instrumento en caso de encontrarlo, nulo en caso contrario.
@@ -43,13 +43,13 @@ public class ListaInstrumento {
         //Recorre la lista en busca del instrumento.
         for(int i=0;i<this.cantInstrumentos;i++){
             Instrumento instrumento = this.instrumentos[i];
-            //Compara el codigo entregado con el de un elemento en la lista.
+            //Compara el código entregado con el de un elemento en la lista.
             if(instrumento.getCodigo().equals(codigo)){
                 return instrumento;
             }
         }
-        //Se recorrio toda la lista y el instrumento no se encontro.
-        System.out.println("No existe instrumento con ese codigo.");
+        //Se recorrió toda la lista y el instrumento no se encontró.
+        System.out.println("No existe instrumento con ese código.");
         return null;
     }
 
@@ -69,7 +69,7 @@ public class ListaInstrumento {
      * @param instrumento a agregar.
      */
     public void agregar(Instrumento instrumento){
-        //Revisa si la lista no se encuentra vacia.
+        //Revisa si la lista no se encuentra vacía.
         if(this.cantInstrumentos>=this.maximo){
             System.out.println("La lista ya esta llena.");
             return;

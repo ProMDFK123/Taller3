@@ -8,7 +8,7 @@ public class Cuerda extends Instrumento{
     private final String tipoCuerda;
     //cantidad de cuerdas que posee el instrumento.
     private final int cantidadCuerdas;
-    //si el instrumento es acustico o electrico.
+    //si el instrumento es acústico o eléctrico.
     private final String tipo;
 
     /**
@@ -29,17 +29,25 @@ public class Cuerda extends Instrumento{
         this.tipo=tipo;
     }
 
+    //Los Getters
+
     /**
-     * get's de los aributos.
+     * @return el tipo de cuerdas que usa el instrumento.
      */
     public String getTipoCuerda() {
         return tipoCuerda;
     }
 
+    /**
+     * @return la cantidad de cuerdas del instrumento.
+     */
     public int getCantidadCuerdas() {
         return cantidadCuerdas;
     }
 
+    /**
+     * @return el tipo de sonido del instrumento.
+     */
     public String getTipo() {
         return tipo;
     }

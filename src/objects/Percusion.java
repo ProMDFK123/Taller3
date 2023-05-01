@@ -21,13 +21,17 @@ public class Percusion extends Instrumento{
         this.altura=altura;
     }
 
+
     /**
-     * obtiene el tipo de percusión.
+     * @return la forma en que se transmite el sonido.
      */
     public String getTipoPercusion() {
         return tipoPercusion;
     }
 
+    /**
+     * @return si tiene altura definida o indefinida.
+     */
     public String getAltura() {
         return altura;
     }

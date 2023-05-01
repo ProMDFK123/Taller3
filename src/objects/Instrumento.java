@@ -4,7 +4,7 @@ package objects;
  * Clase para generación de instrumentos.
  */
 public class Instrumento {
-    //codigo del instrumento.
+    //código del instrumento.
     private final String codigo;
     //precio del instrumento.
     private final int precio;
@@ -31,29 +31,48 @@ public class Instrumento {
         this.material = material;
     }
 
+    //Los Getters
+
     /**
-     * get's de cada atributo.
+     * @return el código único del instrumento.
      */
     public String getCodigo() {
         return codigo;
     }
 
+    /**
+     * @return el precio del instrumento.
+     */
     public int getPrecio() {
         return precio;
     }
 
+    /**
+     * @return la cantidad de unidades disponibles.
+     */
     public int getStock() {
         return stock;
     }
 
+    /**
+     * @return el nombre del instrumento.
+     * ¿Qué instrumento es?
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * @return el material de fabricación del instrumento.
+     */
     public String getMaterial() {
         return material;
     }
 
+    /**
+     * Modifica el valor del stock de un instrumento.
+     * @param stock - Nuevo valor del stock.
+     */
     public void setStock(int stock) {
         this.stock = stock;
     }
