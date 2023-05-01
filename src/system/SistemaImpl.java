@@ -42,9 +42,6 @@ public class SistemaImpl implements Sistema{
      * @throws IOException en caso de error.
      */
     public void menu() throws IOException {
-        //variable booleana que comprueba si el programa está encendido o no.
-        boolean encendido = true;
-
         //carga el archivo.
         String csv = "/home/gabo/Escritorio/Universidad/2023-I/Programación Avanzada/Talleres/Taller 3/Taller3/src/csv/instrumentos.csv";
         this.agregarInstrumento(csv);
@@ -59,7 +56,7 @@ public class SistemaImpl implements Sistema{
             switch (opcion) {
                 case "1" -> venderInstrumento();
                 case "2" -> consultarInventario();
-                case "3" -> cierre(encendido);
+                case "3" -> cierre();
                 default -> System.out.println("Opción Invalida, intente nuevamente.");
             }
         }
@@ -262,8 +259,7 @@ public class SistemaImpl implements Sistema{
             case "1" -> verTodo(this.instrumentosCuerda);
             case "2" -> verTodo(this.instrumentosPercusion);
             case "3" -> verTodo(this.instrumentosViento);
-            case "4" -> {
-            }
+            case "4" -> {}
             default -> System.out.println("Opción Invalida, intente nuevamente.");
         }
     }
@@ -327,12 +323,10 @@ public class SistemaImpl implements Sistema{
 
     /**
      * Método para cerrar el programa.
-     *
-     * @param estado del programa
      */
     @Override
-    public void cierre(boolean estado) {
-        estado=false;
+    public boolean cierre() {
+        return false;
     }
 
     /**
@@ -375,7 +369,7 @@ public class SistemaImpl implements Sistema{
                         "----------------------------------------------------------------\n" +
                         "CANTIDAD | DESCRIPCIÓN | PRECIO UNITARIO | IVA% | VALOR DE VENTA\n" +
                         "----------------------------------------------------------------\n" +
-                        "1 | " + instrumento.getNombre() + " | " + instrumento.getPrecio() + " | 19% | " + instrumento.getPrecio() +
+                        "1        | " + instrumento.getNombre() + "       | " + instrumento.getPrecio() + "          | 19%  | " + instrumento.getPrecio() + "\n" +
                         "----------------------------------------------------------------\n" +
                         "TOTAL A PAGAR: " + instrumento.getPrecio();
 

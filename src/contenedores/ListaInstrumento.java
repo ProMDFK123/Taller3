@@ -49,7 +49,6 @@ public class ListaInstrumento {
             }
         }
         //Se recorrió toda la lista y el instrumento no se encontró.
-        System.out.println("No existe instrumento con ese código.");
         return null;
     }
 
