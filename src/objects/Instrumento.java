@@ -5,23 +5,23 @@ package objects;
  */
 public class Instrumento {
     //codigo del instrumento.
-    private String codigo;
+    private final String codigo;
     //precio del instrumento.
-    private int precio;
+    private final int precio;
     //cantidad de unidades disponibles.
     private int stock;
     //¿qué instrumento es?
-    private String nombre;
+    private final String nombre;
     //material de construcción.
-    private String material;
+    private final String material;
 
     /**
      * Constructor de un instrumento.
-     * @param codigo
-     * @param precio
-     * @param stock
-     * @param nombre
-     * @param material
+     * @param codigo del instrumento.
+     * @param precio del instrumento.
+     * @param stock - Cantidad de unidades disponibles.
+     * @param nombre - ¿Qué instrumento es?
+     * @param material de fabricación.
      */
     public Instrumento(String codigo, int precio, int stock, String nombre, String material) {
         this.codigo = codigo;

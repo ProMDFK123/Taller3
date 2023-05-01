@@ -1,19 +1,19 @@
 package objects;
 
 public class Percusion extends Instrumento{
-    private String tipoPercusion;
-    private String altura;
+    private final String tipoPercusion;
+    private final String altura;
 
     /**
-     * Constructor de un instrumento de percusion.
+     * Constructor de un instrumento de percusión.
      *
-     * @param codigo
-     * @param precio
-     * @param stock
-     * @param nombre
-     * @param material
-     * @param tipoPercusion
-     * @param altura
+     * @param codigo del instrumento.
+     * @param precio del instrumento.
+     * @param stock - Cantidad de unidades disponibles.
+     * @param nombre - ¿Qué instrumento es?
+     * @param material de fabricación.
+     * @param tipoPercusion - Forma de dispersión del sonido.
+     * @param altura definida o indefinida.
      */
     public Percusion(String codigo, int precio, int stock, String nombre, String material, String tipoPercusion, String altura) {
         super(codigo, precio, stock, nombre, material);
@@ -22,7 +22,7 @@ public class Percusion extends Instrumento{
     }
 
     /**
-     * get's de los atributos.
+     * obtiene el tipo de percusión.
      */
     public String getTipoPercusion() {
         return tipoPercusion;

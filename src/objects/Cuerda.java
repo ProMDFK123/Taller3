@@ -5,22 +5,22 @@ package objects;
  */
 public class Cuerda extends Instrumento{
     //material de las cuerdas.
-    private String tipoCuerda;
+    private final String tipoCuerda;
     //cantidad de cuerdas que posee el instrumento.
-    private int cantidadCuerdas;
+    private final int cantidadCuerdas;
     //si el instrumento es acustico o electrico.
-    private String tipo;
+    private final String tipo;
 
     /**
      * Constructor de un instrumento de cuerdas.
-     * @param codigo
-     * @param precio
-     * @param stock
-     * @param nombre
-     * @param material
-     * @param tipoCuerda
-     * @param cantidadCuerdas
-     * @param tipo
+     * @param codigo del instrumento.
+     * @param precio del instrumento.
+     * @param stock - Cantidad de unidades disponibles.
+     * @param nombre - ¿Qué instrumento es?
+     * @param material de fabricación.
+     * @param tipoCuerda - Tipo de cuerdas que usa.
+     * @param cantidadCuerdas - Cantidad de cuerdas que posee el instrumento.
+     * @param tipo de sonido.
      */
     public Cuerda(String codigo, int precio, int stock, String nombre, String material, String tipoCuerda, int cantidadCuerdas, String tipo) {
         super(codigo, precio, stock, nombre, material);

@@ -7,14 +7,15 @@ import objects.Instrumento;
  */
 public class ListaInstrumento {
     //lista de instrumentos.
-    private Instrumento[] instrumentos;
+    private final Instrumento[] instrumentos;
     //capacidad maxima de la lista.
-    private int maximo;
+    private final int maximo;
     //cantidad de elementos en la lista.
     private int cantInstrumentos;
 
     /**
      * Constructor de una lista de instrumentos.
+     *
      * @param maximo capacidad maxima de la lista.
      */
     public ListaInstrumento(int maximo) {
@@ -24,6 +25,8 @@ public class ListaInstrumento {
     }
 
     /**
+     * Gets cant instrumentos.
+     *
      * @return la cantidad de elementos en la lista.
      */
     public int getCantInstrumentos() {
@@ -32,6 +35,7 @@ public class ListaInstrumento {
 
     /**
      * Método que busca un instrumento dado el codigo de este
+     *
      * @param codigo del instrumento a buscar.
      * @return el instrumento en caso de encontrarlo, nulo en caso contrario.
      */
@@ -51,6 +55,7 @@ public class ListaInstrumento {
 
     /**
      * Método booleano que comprueba si un instrumento ya existe o no.
+     *
      * @param codigo del instrumento a verificar.
      * @return true si el instrumento existe, false en caso contrario.
      */
@@ -60,6 +65,7 @@ public class ListaInstrumento {
 
     /**
      * Método que agrega un nuevo instrumento a la lista.
+     *
      * @param instrumento a agregar.
      */
     public void agregar(Instrumento instrumento){
@@ -81,6 +87,7 @@ public class ListaInstrumento {
 
     /**
      * Método que busca un instrumento dada su posición.
+     *
      * @param posicion a encontrar.
      * @return el instrumento en la posición dada.
      */

@@ -26,7 +26,7 @@ public class SistemaImpl implements Sistema{
 
     /**
      * Constructor del sistema.
-     * @throws IOException
+     * @throws IOException en caso de error.
 
      */
     public SistemaImpl() throws IOException {
@@ -39,7 +39,7 @@ public class SistemaImpl implements Sistema{
 
     /**
      * Menu principal del programa.
-     * @throws IOException
+     * @throws IOException en caso de error.
      */
     public void menu() throws IOException {
         //variable booleana que comprueba si el programa esta encendido o no.
@@ -50,7 +50,7 @@ public class SistemaImpl implements Sistema{
         this.agregarInstrumento(csv);
 
         //ciclo infinito
-        while(encendido) {
+        while(true) {
             //menu que aparece al inicial el programa.
             this.mainmenu();
 
@@ -69,7 +69,7 @@ public class SistemaImpl implements Sistema{
      * Método que carga y guarda en arreglos los diversos datos
      * ubicados en un archivo de tipo 'valores separados por coma' (CVS).
      * @param archivo a abrir.
-     * @throws IOException
+     * @throws IOException en caso de error.
      */
     @Override
     public void agregarInstrumento(String archivo) throws IOException{
@@ -88,28 +88,29 @@ public class SistemaImpl implements Sistema{
             crear un objeto instrumento, y lo almacena en sus
             correspondientes contenedores.
              */
-            if(atributos[0]=="Viento"){
-                int precio = Integer.parseInt(atributos[2]);
-                int stock = Integer.parseInt(atributos[3]);
-                Instrumento viento = new Viento(atributos[1],precio,stock,atributos[4],atributos[5]);
-                this.totalInstrumentos.agregar(viento);
-                Viento v = (Viento) viento;
-                this.instrumentosViento.agregar(v);
-            } else if (atributos[0]=="Cuerda") {
-                int precio = Integer.parseInt(atributos[2]);
-                int stock = Integer.parseInt(atributos[3]);
-                int cantCuerdas = Integer.parseInt(atributos[7]);
-                Instrumento cuerda = new Cuerda(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6], cantCuerdas, atributos[8]);
-                this.totalInstrumentos.agregar(cuerda);
-                Cuerda c = (Cuerda) cuerda;
-                this.instrumentosCuerda.agregar(c);
-            } else if (atributos[0]=="Percusion") {
-                int precio = Integer.parseInt(atributos[2]);
-                int stock = Integer.parseInt(atributos[3]);
-                Instrumento percusion = new Percusion(atributos[1],precio,stock,atributos[4],atributos[5], atributos[6],atributos[7]);
-                this.totalInstrumentos.agregar(percusion);
-                Percusion p = (Percusion) percusion;
-                this.instrumentosPercusion.agregar(p);
+            switch (atributos[0]) {
+                case "Viento" -> {
+                    int precio = Integer.parseInt(atributos[2]);
+                    int stock = Integer.parseInt(atributos[3]);
+                    Viento viento = new Viento(atributos[1], precio, stock, atributos[4], atributos[5]);
+                    this.totalInstrumentos.agregar(viento);
+                    this.instrumentosViento.agregar(viento);
+                }
+                case "Cuerda" -> {
+                    int precio = Integer.parseInt(atributos[2]);
+                    int stock = Integer.parseInt(atributos[3]);
+                    int cantCuerdas = Integer.parseInt(atributos[7]);
+                    Cuerda cuerda = new Cuerda(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], cantCuerdas, atributos[8]);
+                    this.totalInstrumentos.agregar(cuerda);
+                    this.instrumentosCuerda.agregar(cuerda);
+                }
+                case "Percusion" -> {
+                    int precio = Integer.parseInt(atributos[2]);
+                    int stock = Integer.parseInt(atributos[3]);
+                    Percusion percusion = new Percusion(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], atributos[7]);
+                    this.totalInstrumentos.agregar(percusion);
+                    this.instrumentosPercusion.agregar(percusion);
+                }
             }
             //lee otra linea.
             linea = lectura.readLine();
@@ -169,7 +170,8 @@ public class SistemaImpl implements Sistema{
             case "1" -> verTodo(this.totalInstrumentos);
             case "2" -> verTipo();
             case "3" -> verEspecifico(this.totalInstrumentos);
-            case "4" -> {return;}
+            case "4" -> {
+            }
             default -> System.out.println("Opción invalida, intente nuevamente.");
         }
     }
@@ -191,41 +193,42 @@ public class SistemaImpl implements Sistema{
         Instrumento instrumento = lista.buscar(code);
 
         //Analiza el instrumento para castearlo y asi imprimir sus datos.
-        if(instrumento.getNombre().equals("Guitarra") || instrumento.getNombre().equals("Bajo") || instrumento.getNombre().equals("Violin") || instrumento.getNombre().equals("Arpa")){
-            Cuerda cuerda = (Cuerda) instrumento;
-
-            inventario.append("Codigo: "+cuerda.getCodigo()+"\n");
-            inventario.append("Precio: "+cuerda.getPrecio()+"\n");
-            inventario.append("Stock: "+cuerda.getStock()+"\n");
-            inventario.append("Instrumento: "+cuerda.getNombre()+"\n");
-            inventario.append("Tipo de Cuerda: "+cuerda.getTipoCuerda()+"\n");
-            inventario.append("Número de Cuerdas: "+cuerda.getCantidadCuerdas()+"\n");
-            inventario.append("Material: "+cuerda.getMaterial()+"\n");
-            inventario.append("Tipo de Sonido: "+cuerda.getTipo()+"\n");
-            inventario.append("==================================================\n");
-            System.out.println(inventario);
-        } else if (instrumento.getNombre().equals("Bongo") || instrumento.getNombre().equals("Cajon") || instrumento.getNombre().equals("Campanas") || instrumento.getNombre().equals("Tubulares") || instrumento.getNombre().equals("Bombo")) {
-            Percusion percusion = (Percusion) instrumento;
-
-            inventario.append("Codigo: "+percusion.getCodigo()+"\n");
-            inventario.append("Precio: "+percusion.getPrecio()+"\n");
-            inventario.append("Stock: "+percusion.getStock()+"\n");
-            inventario.append("Instrumento: "+percusion.getNombre()+"\n");
-            inventario.append("Tipo de Percusion: "+percusion.getTipoPercusion()+"\n");
-            inventario.append("Número de Cuerdas: "+percusion.getAltura()+"\n");
-            inventario.append("Material: "+percusion.getMaterial()+"\n");
-            inventario.append("==================================================\n");
-            System.out.println(inventario);
-        } else if (instrumento.getNombre().equals("Trompeta") || instrumento.getNombre().equals("Saxofon") || instrumento.getNombre().equals("Clarinete") || instrumento.getNombre().equals("Flauta Traversa")) {
-            Viento viento = (Viento) instrumento;
-
-            inventario.append("Codigo: "+viento.getCodigo()+"\n");
-            inventario.append("Precio: "+viento.getPrecio()+"\n");
-            inventario.append("Stock: "+viento.getStock()+"\n");
-            inventario.append("Instrumento: "+viento.getNombre()+"\n");
-            inventario.append("Material: "+viento.getMaterial()+"\n");
-            inventario.append("==================================================\n");
-            System.out.println(inventario);
+        switch (instrumento.getNombre()) {
+            case "Guitarra", "Bajo", "Violin", "Arpa" -> {
+                Cuerda cuerda = (Cuerda) instrumento;
+                inventario.append("Codigo: ").append(cuerda.getCodigo()).append("\n");
+                inventario.append("Precio: ").append(cuerda.getPrecio()).append("\n");
+                inventario.append("Stock: ").append(cuerda.getStock()).append("\n");
+                inventario.append("Instrumento: ").append(cuerda.getNombre()).append("\n");
+                inventario.append("Tipo de Cuerda: ").append(cuerda.getTipoCuerda()).append("\n");
+                inventario.append("Número de Cuerdas: ").append(cuerda.getCantidadCuerdas()).append("\n");
+                inventario.append("Material: ").append(cuerda.getMaterial()).append("\n");
+                inventario.append("Tipo de Sonido: ").append(cuerda.getTipo()).append("\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            }
+            case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
+                Percusion percusion = (Percusion) instrumento;
+                inventario.append("Codigo: ").append(percusion.getCodigo()).append("\n");
+                inventario.append("Precio: ").append(percusion.getPrecio()).append("\n");
+                inventario.append("Stock: ").append(percusion.getStock()).append("\n");
+                inventario.append("Instrumento: ").append(percusion.getNombre()).append("\n");
+                inventario.append("Tipo de Percusion: ").append(percusion.getTipoPercusion()).append("\n");
+                inventario.append("Número de Cuerdas: ").append(percusion.getAltura()).append("\n");
+                inventario.append("Material: ").append(percusion.getMaterial()).append("\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            }
+            case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
+                Viento viento = (Viento) instrumento;
+                inventario.append("Codigo: ").append(viento.getCodigo()).append("\n");
+                inventario.append("Precio: ").append(viento.getPrecio()).append("\n");
+                inventario.append("Stock: ").append(viento.getStock()).append("\n");
+                inventario.append("Instrumento: ").append(viento.getNombre()).append("\n");
+                inventario.append("Material: ").append(viento.getMaterial()).append("\n");
+                inventario.append("==================================================\n");
+                System.out.println(inventario);
+            }
         }
     }
 
@@ -255,7 +258,8 @@ public class SistemaImpl implements Sistema{
             case "1" -> verTodo(this.instrumentosCuerda);
             case "2" -> verTodo(this.instrumentosPercusion);
             case "3" -> verTodo(this.instrumentosViento);
-            case "4" -> {return;}
+            case "4" -> {
+            }
             default -> System.out.println("Opción Invalida, intente nuevamente.");
         }
     }
@@ -277,41 +281,42 @@ public class SistemaImpl implements Sistema{
             Revisa el tipo de instrumento, lo castea, obtiene los datos necesarios
             y los imprime.
              */
-            if(instrumento.getNombre().equals("Guitarra") || instrumento.getNombre().equals("Bajo") || instrumento.getNombre().equals("Violin") || instrumento.getNombre().equals("Arpa")){
-                Cuerda cuerda = (Cuerda) instrumento;
-
-                inventario.append("Codigo: "+cuerda.getCodigo()+"\n");
-                inventario.append("Precio: "+cuerda.getPrecio()+"\n");
-                inventario.append("Stock: "+cuerda.getStock()+"\n");
-                inventario.append("Instrumento: "+cuerda.getNombre()+"\n");
-                inventario.append("Tipo de Cuerda: "+cuerda.getTipoCuerda()+"\n");
-                inventario.append("Número de Cuerdas: "+cuerda.getCantidadCuerdas()+"\n");
-                inventario.append("Material: "+cuerda.getMaterial()+"\n");
-                inventario.append("Tipo de Sonido: "+cuerda.getTipo()+"\n");
-                inventario.append("==================================================\n");
-                System.out.println(inventario);
-            } else if (instrumento.getNombre().equals("Bongo") || instrumento.getNombre().equals("Cajon") || instrumento.getNombre().equals("Campanas") || instrumento.getNombre().equals("Tubulares") || instrumento.getNombre().equals("Bombo")) {
-                Percusion percusion = (Percusion) instrumento;
-
-                inventario.append("Codigo: "+percusion.getCodigo()+"\n");
-                inventario.append("Precio: "+percusion.getPrecio()+"\n");
-                inventario.append("Stock: "+percusion.getStock()+"\n");
-                inventario.append("Instrumento: "+percusion.getNombre()+"\n");
-                inventario.append("Tipo de Percusion: "+percusion.getTipoPercusion()+"\n");
-                inventario.append("Número de Cuerdas: "+percusion.getAltura()+"\n");
-                inventario.append("Material: "+percusion.getMaterial()+"\n");
-                inventario.append("==================================================\n");
-                System.out.println(inventario);
-            } else if (instrumento.getNombre().equals("Trompeta") || instrumento.getNombre().equals("Saxofon") || instrumento.getNombre().equals("Clarinete") || instrumento.getNombre().equals("Flauta Traversa")) {
-                Viento viento = (Viento) instrumento;
-
-                inventario.append("Codigo: "+viento.getCodigo()+"\n");
-                inventario.append("Precio: "+viento.getPrecio()+"\n");
-                inventario.append("Stock: "+viento.getStock()+"\n");
-                inventario.append("Instrumento: "+viento.getNombre()+"\n");
-                inventario.append("Material: "+viento.getMaterial()+"\n");
-                inventario.append("==================================================\n");
-                System.out.println(inventario);
+            switch (instrumento.getNombre()) {
+                case "Guitarra", "Bajo", "Violin", "Arpa" -> {
+                    Cuerda cuerda = (Cuerda) instrumento;
+                    inventario.append("Codigo: ").append(cuerda.getCodigo()).append("\n");
+                    inventario.append("Precio: ").append(cuerda.getPrecio()).append("\n");
+                    inventario.append("Stock: ").append(cuerda.getStock()).append("\n");
+                    inventario.append("Instrumento: ").append(cuerda.getNombre()).append("\n");
+                    inventario.append("Tipo de Cuerda: ").append(cuerda.getTipoCuerda()).append("\n");
+                    inventario.append("Número de Cuerdas: ").append(cuerda.getCantidadCuerdas()).append("\n");
+                    inventario.append("Material: ").append(cuerda.getMaterial()).append("\n");
+                    inventario.append("Tipo de Sonido: ").append(cuerda.getTipo()).append("\n");
+                    inventario.append("==================================================\n");
+                    System.out.println(inventario);
+                }
+                case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
+                    Percusion percusion = (Percusion) instrumento;
+                    inventario.append("Codigo: ").append(percusion.getCodigo()).append("\n");
+                    inventario.append("Precio: ").append(percusion.getPrecio()).append("\n");
+                    inventario.append("Stock: ").append(percusion.getStock()).append("\n");
+                    inventario.append("Instrumento: ").append(percusion.getNombre()).append("\n");
+                    inventario.append("Tipo de Percusion: ").append(percusion.getTipoPercusion()).append("\n");
+                    inventario.append("Número de Cuerdas: ").append(percusion.getAltura()).append("\n");
+                    inventario.append("Material: ").append(percusion.getMaterial()).append("\n");
+                    inventario.append("==================================================\n");
+                    System.out.println(inventario);
+                }
+                case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
+                    Viento viento = (Viento) instrumento;
+                    inventario.append("Codigo: ").append(viento.getCodigo()).append("\n");
+                    inventario.append("Precio: ").append(viento.getPrecio()).append("\n");
+                    inventario.append("Stock: ").append(viento.getStock()).append("\n");
+                    inventario.append("Instrumento: ").append(viento.getNombre()).append("\n");
+                    inventario.append("Material: ").append(viento.getMaterial()).append("\n");
+                    inventario.append("==================================================\n");
+                    System.out.println(inventario);
+                }
             }
         }
     }
@@ -322,29 +327,24 @@ public class SistemaImpl implements Sistema{
      * @return false para que el programa finalice
      */
     @Override
-    public boolean cierre(boolean estado) {return estado=false;}
+    public boolean cierre(boolean estado) {return false;}
 
     /**
      * Método auxiliar que despliega el menu principal del programa
      */
     private void mainmenu(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("* BIENVENID@ A BEAT THE RYTHM *");
-        sb.append("\n");
-        sb.append("¿Qué desea hacer?");
-        sb.append("\n");
-        sb.append("1. Vender un instrumento.");
-        sb.append("\n");
-        sb.append("2. Consultar inventario.");
-        sb.append("\n");
-        sb.append("3. Salir.");
-        String mainMenu = sb.toString();
+        String mainMenu = """
+                * BIENVENID@ A BEAT THE RYTHM *
+                ¿Qué desea hacer?
+                1. Vender un instrumento.
+                2. Consultar inventario.
+                3. Salir.""";
         System.out.println(mainMenu);
     }
 
     /**
      * Método auxiliar que genera la boleta de una venta.
-     * @param instrumento
+     * @param instrumento vendido.
      */
     public void generarBoleta(Instrumento instrumento){
         //Listas que almacenan la información de los vendedores.
@@ -364,15 +364,15 @@ public class SistemaImpl implements Sistema{
                 StringBuilder boleta = new StringBuilder();
                 boleta.append("BEAT THE RYTHM\n");
                 boleta.append("----------------------------------------------------------------\n");
-                boleta.append("RUC O CI: "+ci+"\n");
+                boleta.append("RUC O CI: ").append(ci).append("\n");
                 boleta.append("----------------------------------------------------------------\n");
-                boleta.append("NOMBRE VENDEDOR: "+vendedor+"\n");
+                boleta.append("NOMBRE VENDEDOR: ").append(vendedor).append("\n");
                 boleta.append("----------------------------------------------------------------\n");
                 boleta.append("CANTIDAD | DESCRIPCIÓN | PRECIO UNITARIO | IVA% | VALOR DE VENTA\n");
                 boleta.append("----------------------------------------------------------------\n");
-                boleta.append("1 | "+instrumento.getNombre()+" | "+instrumento.getPrecio()+" | 19% | "+instrumento.getPrecio());
+                boleta.append("1 | ").append(instrumento.getNombre()).append(" | ").append(instrumento.getPrecio()).append(" | 19% | ").append(instrumento.getPrecio());
                 boleta.append("----------------------------------------------------------------\n");
-                boleta.append("TOTAL A PAGAR: "+instrumento.getPrecio());
+                boleta.append("TOTAL A PAGAR: ").append(instrumento.getPrecio());
             }
         }
     }
