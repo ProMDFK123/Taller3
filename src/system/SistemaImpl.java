@@ -42,12 +42,15 @@ public class SistemaImpl implements Sistema{
      * @throws IOException en caso de error.
      */
     public void menu() throws IOException {
-        //carga el archivo.
+        //Variable booleana que indica si el programa se encuentra encendido o no.
+        boolean encendido = true;
+
+        //Carga el archivo.
         String csv = "/home/gabo/Escritorio/Universidad/2023-I/Programación Avanzada/Talleres/Taller 3/Taller3/src/csv/instrumentos.csv";
         this.agregarInstrumento(csv);
 
         //ciclo infinito
-        while(true) {
+        while(encendido) {
             //menu que aparece al inicial el programa.
             this.mainmenu();
 
@@ -56,7 +59,7 @@ public class SistemaImpl implements Sistema{
             switch (opcion) {
                 case "1" -> venderInstrumento();
                 case "2" -> consultarInventario();
-                case "3" -> cierre();
+                case "3" -> encendido = cierre(encendido);
                 default -> System.out.println("Opción Invalida, intente nuevamente.");
             }
         }
@@ -325,8 +328,9 @@ public class SistemaImpl implements Sistema{
      * Método para cerrar el programa.
      */
     @Override
-    public boolean cierre() {
-        return false;
+    public boolean cierre(boolean estado) {
+        System.out.println("Hasta luego, vuelva pronto!");
+        return !estado;
     }
 
     /**
