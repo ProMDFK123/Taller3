@@ -164,6 +164,9 @@ public class SistemaImpl implements Sistema{
         menu.append("4. Volver Atrás\n");
         menu.append("Opción: ");
 
+        //Imprime el menú.
+        System.out.println(menu);
+
         //Registro de la opción.
         opcion = StdIn.readString();
         switch (opcion){
@@ -251,6 +254,9 @@ public class SistemaImpl implements Sistema{
         subMenu.append("3. Instrumentos de Viento.\n");
         subMenu.append("4. Volver Atrás.\n");
         subMenu.append("Opción: ");
+
+        //Imprime el menú.
+        System.out.println(subMenu);
 
         //Registro de la opción.
         opcion = StdIn.readString();
@@ -373,6 +379,9 @@ public class SistemaImpl implements Sistema{
                 boleta.append("1 | ").append(instrumento.getNombre()).append(" | ").append(instrumento.getPrecio()).append(" | 19% | ").append(instrumento.getPrecio());
                 boleta.append("----------------------------------------------------------------\n");
                 boleta.append("TOTAL A PAGAR: ").append(instrumento.getPrecio());
+
+                //Imprime la boleta.
+                System.out.println(boleta);
             }
         }
     }
@@ -391,6 +400,9 @@ public class SistemaImpl implements Sistema{
         vender.append("=========================\n");
         vender.append("\n");
         vender.append("Ingrese el código del instrumento: ");
+
+        //Imprime el menú para vender un instrumento.
+        System.out.println(vender);
 
         //Registro del código.
         code = StdIn.readString();
