@@ -148,21 +148,19 @@ public class SistemaImpl implements Sistema{
      */
     @Override
     public void consultarInventario() {
-        //Menú de opciones.
-        StringBuilder menu = new StringBuilder();
         //Opción del usuario.
         String opcion;
 
         //Menú.
-        menu.append("========================\n");
-        menu.append("= CONSULTAR INVENTARIO =\n");
-        menu.append("========================\n");
-        menu.append("\n");
-        menu.append("1. Ver Todo.\n");
-        menu.append("2. Ver Por Tipo.\n");
-        menu.append("3. Ver Producto en Especifico.");
-        menu.append("4. Volver Atrás\n");
-        menu.append("Opción: ");
+        String menu = """
+                ========================
+                = CONSULTAR INVENTARIO =
+                ========================
+
+                1. Ver Todo.
+                2. Ver Por Tipo.
+                3. Ver Producto en Especifico.4. Volver Atrás
+                Opción:\s""";
 
         //Imprime el menú.
         System.out.println(menu);
@@ -244,16 +242,16 @@ public class SistemaImpl implements Sistema{
         String opcion;
 
         //Menú.
-        StringBuilder subMenu = new StringBuilder();
-        subMenu.append("================\n");
-        subMenu.append("= VER POR TIPO =\n");
-        subMenu.append("================\n");
-        subMenu.append("\n");
-        subMenu.append("1. Instrumentos de Cuerda.\n");
-        subMenu.append("2. Instrumentos de Percusión.\n");
-        subMenu.append("3. Instrumentos de Viento.\n");
-        subMenu.append("4. Volver Atrás.\n");
-        subMenu.append("Opción: ");
+        String subMenu = """
+                ================
+                = VER POR TIPO =
+                ================
+
+                1. Instrumentos de Cuerda.
+                2. Instrumentos de Percusión.
+                3. Instrumentos de Viento.
+                4. Volver Atrás.
+                Opción:\s""";
 
         //Imprime el menú.
         System.out.println(subMenu);
@@ -367,18 +365,17 @@ public class SistemaImpl implements Sistema{
                 String vendedor = vendedores[i];
 
                 //generación de llaboleta.
-                StringBuilder boleta = new StringBuilder();
-                boleta.append("BEAT THE RYTHM\n");
-                boleta.append("----------------------------------------------------------------\n");
-                boleta.append("RUC O CI: ").append(ci).append("\n");
-                boleta.append("----------------------------------------------------------------\n");
-                boleta.append("NOMBRE VENDEDOR: ").append(vendedor).append("\n");
-                boleta.append("----------------------------------------------------------------\n");
-                boleta.append("CANTIDAD | DESCRIPCIÓN | PRECIO UNITARIO | IVA% | VALOR DE VENTA\n");
-                boleta.append("----------------------------------------------------------------\n");
-                boleta.append("1 | ").append(instrumento.getNombre()).append(" | ").append(instrumento.getPrecio()).append(" | 19% | ").append(instrumento.getPrecio());
-                boleta.append("----------------------------------------------------------------\n");
-                boleta.append("TOTAL A PAGAR: ").append(instrumento.getPrecio());
+                String boleta = "BEAT THE RYTHM\n" +
+                        "----------------------------------------------------------------\n" +
+                        "RUC O CI: " + ci + "\n" +
+                        "----------------------------------------------------------------\n" +
+                        "NOMBRE VENDEDOR: " + vendedor + "\n" +
+                        "----------------------------------------------------------------\n" +
+                        "CANTIDAD | DESCRIPCIÓN | PRECIO UNITARIO | IVA% | VALOR DE VENTA\n" +
+                        "----------------------------------------------------------------\n" +
+                        "1 | " + instrumento.getNombre() + " | " + instrumento.getPrecio() + " | 19% | " + instrumento.getPrecio() +
+                        "----------------------------------------------------------------\n" +
+                        "TOTAL A PAGAR: " + instrumento.getPrecio();
 
                 //Imprime la boleta.
                 System.out.println(boleta);
@@ -394,12 +391,12 @@ public class SistemaImpl implements Sistema{
         String code;
 
         //menú principal.
-        StringBuilder vender = new StringBuilder();
-        vender.append("=========================\n");
-        vender.append("= VENDER UN INSTRUMENTO =\n");
-        vender.append("=========================\n");
-        vender.append("\n");
-        vender.append("Ingrese el código del instrumento: ");
+        String vender = """
+                =========================
+                = VENDER UN INSTRUMENTO =
+                =========================
+
+                Ingrese el código del instrumento:\s""";
 
         //Imprime el menú para vender un instrumento.
         System.out.println(vender);
