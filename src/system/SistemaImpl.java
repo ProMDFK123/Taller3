@@ -83,33 +83,114 @@ public class SistemaImpl implements Sistema{
             String[] atributos = linea.split(",");
 
             /*
-            comprueba el tipo de instrumento,
-            cambia a integer las variables pertinentes para
-            crear un objeto instrumento, y lo almacena en sus
-            correspondientes contenedores.
+              Comprueba el tipo de instrumento,
+              cambia a integer las variables pertinentes para
+              crear un objeto instrumento, y lo almacena en sus
+              correspondientes contenedores. Aumenta el stock en
+              caso de ya existir.
              */
             switch (atributos[0]) {
+                //Para instrumentos de viento.
                 case "Viento" -> {
-                    int precio = Integer.parseInt(atributos[2]);
-                    int stock = Integer.parseInt(atributos[3]);
-                    Viento viento = new Viento(atributos[1], precio, stock, atributos[4], atributos[5]);
-                    this.totalInstrumentos.agregar(viento);
-                    this.instrumentosViento.agregar(viento);
+                    //Revisa si la lista esta vacía o no.
+                    if(this.totalInstrumentos.getCantInstrumentos()>0) {
+                        //Recorre la lista en busca de un instrumento.
+                        for (int i = 0; i < this.totalInstrumentos.getCantInstrumentos(); i++) {
+                            Instrumento viento = this.totalInstrumentos.buscar(i);
+                            //Encuentra un instrumento a agregar ya existente.
+                            if (viento.getNombre().equals(atributos[4])) {
+                                Instrumento vientoAux = this.instrumentosViento.buscar(viento.getCodigo());
+                                int stock = Integer.parseInt(atributos[3]);
+                                //Actualiza el stock.
+                                viento.setStock(viento.getStock() + stock);
+                                vientoAux.setStock(viento.getStock());
+                            //No existe instrumento en la lista.
+                            } else {
+                                //Crea el instrumento y lo agrega.
+                                int precio = Integer.parseInt(atributos[2]);
+                                int stock = Integer.parseInt(atributos[3]);
+                                Viento viento2 = new Viento(atributos[1], precio, stock, atributos[4], atributos[5]);
+                                this.totalInstrumentos.agregar(viento2);
+                                this.instrumentosViento.agregar(viento2);
+                            }
+                        }
+                    //La lista esta vacía.
+                    }else {
+                        //Crea el instrumento y lo agrega.
+                        int precio = Integer.parseInt(atributos[2]);
+                        int stock = Integer.parseInt(atributos[3]);
+                        Viento viento = new Viento(atributos[1], precio, stock, atributos[4], atributos[5]);
+                        this.totalInstrumentos.agregar(viento);
+                        this.instrumentosViento.agregar(viento);
+                    }
                 }
                 case "Cuerda" -> {
-                    int precio = Integer.parseInt(atributos[2]);
-                    int stock = Integer.parseInt(atributos[3]);
-                    int cantCuerdas = Integer.parseInt(atributos[7]);
-                    Cuerda cuerda = new Cuerda(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], cantCuerdas, atributos[8]);
-                    this.totalInstrumentos.agregar(cuerda);
-                    this.instrumentosCuerda.agregar(cuerda);
+                    //Revisa si la lista esta vacía o no.
+                    if(this.totalInstrumentos.getCantInstrumentos()>0) {
+                        //Recorre la lista en busca de un instrumento.
+                        for (int i = 0; i < this.totalInstrumentos.getCantInstrumentos(); i++) {
+                            Instrumento cuerdaAux = this.totalInstrumentos.buscar(i);
+                            //Encuentra un instrumento a agregar ya existente.
+                            if (cuerdaAux.getNombre().equals(atributos[4])) {
+                                Instrumento cuerda = this.instrumentosViento.buscar(cuerdaAux.getCodigo());
+                                int stock = Integer.parseInt(atributos[3]);
+                                //Actualiza el stock.
+                                cuerdaAux.setStock(cuerdaAux.getStock() + stock);
+                                cuerda.setStock(cuerdaAux.getStock());
+                                //No existe instrumento en la lista.
+                            } else {
+                                //Crea el instrumento y lo agrega.
+                                int precio = Integer.parseInt(atributos[2]);
+                                int stock = Integer.parseInt(atributos[3]);
+                                int cantCuerdas = Integer.parseInt(atributos[7]);
+                                Cuerda cuerda2 = new Cuerda(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], cantCuerdas, atributos[8]);
+                                this.totalInstrumentos.agregar(cuerda2);
+                                this.instrumentosViento.agregar(cuerda2);
+                            }
+                        }
+                        //La lista esta vacía.
+                    }else {
+                        //Crea el instrumento y lo agrega.
+                        int precio = Integer.parseInt(atributos[2]);
+                        int stock = Integer.parseInt(atributos[3]);
+                        int cantCuerdas = Integer.parseInt(atributos[7]);
+                        Cuerda cuerda = new Cuerda(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], cantCuerdas, atributos[8]);
+                        this.totalInstrumentos.agregar(cuerda);
+                        this.instrumentosCuerda.agregar(cuerda);
+                    }
                 }
                 case "Percusion" -> {
-                    int precio = Integer.parseInt(atributos[2]);
-                    int stock = Integer.parseInt(atributos[3]);
-                    Percusion percusion = new Percusion(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], atributos[7]);
-                    this.totalInstrumentos.agregar(percusion);
-                    this.instrumentosPercusion.agregar(percusion);
+                    //Revisa si la lista esta vacía o no.
+                    if(this.totalInstrumentos.getCantInstrumentos()>0) {
+                        //Recorre la lista en busca de un instrumento.
+                        for (int i = 0; i < this.totalInstrumentos.getCantInstrumentos(); i++) {
+                            Instrumento p = this.totalInstrumentos.buscar(i);
+                            //Encuentra un instrumento a agregar ya existente.
+                            if (p.getNombre().equals(atributos[4])) {
+                                Instrumento percusion = this.instrumentosViento.buscar(p.getCodigo());
+                                int stock = Integer.parseInt(atributos[3]);
+                                //Actualiza el stock.
+                                p.setStock(p.getStock() + stock);
+                                percusion.setStock(p.getStock());
+                                //No existe instrumento en la lista.
+                            } else {
+                                //Crea el instrumento y lo agrega.
+                                int precio = Integer.parseInt(atributos[2]);
+                                int stock = Integer.parseInt(atributos[3]);
+                                Percusion percution = new Percusion(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], atributos[7]);
+                                this.totalInstrumentos.agregar(percution);
+                                this.instrumentosViento.agregar(percution);
+                            }
+                        }
+                        //La lista esta vacía.
+                    }else {
+                        //Crea el instrumento y lo agrega.
+                        int precio = Integer.parseInt(atributos[2]);
+                        int stock = Integer.parseInt(atributos[3]);
+                        Percusion percusion= new Percusion(atributos[1], precio, stock, atributos[4], atributos[5], atributos[6], atributos[8]);
+                        this.totalInstrumentos.agregar(percusion);
+                        this.instrumentosViento.agregar(percusion);
+                    }
                 }
             }
             //lee otra linea.
