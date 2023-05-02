@@ -47,7 +47,6 @@ public class SistemaImpl implements Sistema{
 
         //Carga el archivo.
         String csv = "/home/gabo/Escritorio/Universidad/2023-I/Programación Avanzada/Talleres/Taller 3/Taller3/src/csv/instrumentos.csv";
-        this.agregarInstrumento(csv);
 
         //ciclo infinito
         while(encendido) {
@@ -57,9 +56,10 @@ public class SistemaImpl implements Sistema{
             //registra la opción escogida por el usuario.
             String opcion = StdIn.readString();
             switch (opcion) {
-                case "1" -> venderInstrumento();
-                case "2" -> consultarInventario();
-                case "3" -> encendido = cierre(encendido);
+                case "1" -> agregarInstrumento(csv);
+                case "2" -> venderInstrumento();
+                case "3" -> consultarInventario();
+                case "4" -> encendido = cierre(encendido);
                 default -> System.out.println("Opción Invalida, intente nuevamente.");
             }
         }
@@ -159,7 +159,8 @@ public class SistemaImpl implements Sistema{
 
                 1. Ver Todo.
                 2. Ver Por Tipo.
-                3. Ver Producto en Especifico.4. Volver Atrás
+                3. Ver Producto en Especifico.
+                4. Volver Atrás
                 Opción:\s""";
 
         //Imprime el menú.
@@ -340,9 +341,11 @@ public class SistemaImpl implements Sistema{
         String mainMenu = """
                 * BIENVENID@ A BEAT THE RYTHM *
                 ¿Qué desea hacer?
-                1. Vender un instrumento.
-                2. Consultar inventario.
-                3. Salir.""";
+                
+                1. Agregar Instrumento.
+                2. Vender un instrumento.
+                3. Consultar inventario.
+                4. Salir.""";
         System.out.println(mainMenu);
     }
 
