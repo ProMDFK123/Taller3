@@ -27,13 +27,14 @@ public class SistemaImpl implements Sistema{
     /**
      * Constructor del sistema.
      * @throws IOException en caso de error.
-
      */
     public SistemaImpl() throws IOException {
+        //Generación de las listas sobredimensionadas.
         totalInstrumentos = new ListaInstrumento(100);
         instrumentosCuerda = new ListaInstrumento(100);
         instrumentosPercusion = new ListaInstrumento(100);
         instrumentosViento = new ListaInstrumento(100);
+        //ejecuta el main.
         menu();
     }
 
@@ -45,7 +46,7 @@ public class SistemaImpl implements Sistema{
         //Variable booleana que indica si el programa se encuentra encendido o no.
         boolean encendido = true;
 
-        //Carga el archivo.
+        //Ubicación del archivo.
         String csv = "/home/gabo/Escritorio/Universidad/2023-I/Programación Avanzada/Talleres/Taller 3/Taller3/src/csv/instrumentos.csv";
 
         //ciclo infinito
@@ -56,10 +57,15 @@ public class SistemaImpl implements Sistema{
             //registra la opción escogida por el usuario.
             String opcion = StdIn.readString();
             switch (opcion) {
+                //Agrega y/o actualiza la lista de instrumentos.
                 case "1" -> agregarInstrumento(csv);
+                //Vende un instrumento.
                 case "2" -> venderInstrumento();
+                //Consulta el inventario.
                 case "3" -> consultarInventario();
+                //Cierra la sesión.
                 case "4" -> encendido = cierre(encendido);
+                //Se ingresó una opción inválida.
                 default -> System.out.println("Opción Invalida, intente nuevamente.");
             }
         }
@@ -78,6 +84,7 @@ public class SistemaImpl implements Sistema{
         //lee la primera linea del archivo
         String linea = lectura.readLine();
 
+        //Ciclo infinito.
         while(linea!=null){
             //Separa cada línea
             String[] atributos = linea.split(",");
@@ -124,6 +131,7 @@ public class SistemaImpl implements Sistema{
                         this.instrumentosViento.agregar(viento);
                     }
                 }
+                //Para instrumentos de cuerda.
                 case "Cuerda" -> {
                     //Revisa si la lista esta vacía o no.
                     if(this.totalInstrumentos.getCantInstrumentos()>0) {
@@ -159,6 +167,7 @@ public class SistemaImpl implements Sistema{
                         this.instrumentosCuerda.agregar(cuerda);
                     }
                 }
+                //Para instrumentos de percusión.
                 case "Percusion" -> {
                     //Revisa si la lista esta vacía o no.
                     if(this.totalInstrumentos.getCantInstrumentos()>0) {
@@ -250,11 +259,15 @@ public class SistemaImpl implements Sistema{
         //Registro de la opción.
         opcion = StdIn.readString();
         switch (opcion){
+            //Mostrar todos los instrumentos.
             case "1" -> verTodo(this.totalInstrumentos);
+            //Mostrar los instrumentos de un dado tipo.
             case "2" -> verTipo();
+            //Mostrar un único instrumento dado su código.
             case "3" -> verEspecifico(this.totalInstrumentos);
-            case "4" -> {
-            }
+            //Vuelve a la ventana anterior.
+            case "4" -> {return;}
+            //Opción invalida.
             default -> System.out.println("Opción invalida, intente nuevamente.");
         }
     }
@@ -271,14 +284,23 @@ public class SistemaImpl implements Sistema{
         StringBuilder inventario = new StringBuilder();
 
         System.out.println("Ingrese el código del instrumento a buscar: ");
+        //Ingreso de un código.
         code = StdIn.readString();
+        //Validación del código ingresado.
+        if(!lista.validarCodigo(code)){
+            System.out.println("El código ingresado no es válido, intente nuevamente.");
+            return;
+        }
         //Recibe el código del instrumento y lo busca.
         Instrumento instrumento = lista.buscar(code);
 
         //Analiza el instrumento para castearlo y asi imprimir sus datos.
         switch (instrumento.getNombre()) {
+            //Para instrumentos de cuerda.
             case "Guitarra", "Bajo", "Violin", "Arpa" -> {
+                //Casteo del instrumento.
                 Cuerda cuerda = (Cuerda) instrumento;
+                //Generación de información.
                 inventario.append("Codigo: ").append(cuerda.getCodigo()).append("\n");
                 inventario.append("Precio: ").append(cuerda.getPrecio()).append("\n");
                 inventario.append("Stock: ").append(cuerda.getStock()).append("\n");
@@ -288,8 +310,10 @@ public class SistemaImpl implements Sistema{
                 inventario.append("Material: ").append(cuerda.getMaterial()).append("\n");
                 inventario.append("Tipo de Sonido: ").append(cuerda.getTipo()).append("\n");
                 inventario.append("==================================================\n");
+                //Imprime la información.
                 System.out.println(inventario);
             }
+            //Para instrumentos de percusión.
             case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
                 Percusion percusion = (Percusion) instrumento;
                 inventario.append("Código: ").append(percusion.getCodigo()).append("\n");
@@ -302,6 +326,7 @@ public class SistemaImpl implements Sistema{
                 inventario.append("==================================================\n");
                 System.out.println(inventario);
             }
+            //Para instrumentos de viento.
             case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
                 Viento viento = (Viento) instrumento;
                 inventario.append("Código: ").append(viento.getCodigo()).append("\n");
@@ -341,10 +366,15 @@ public class SistemaImpl implements Sistema{
         //Registro de la opción.
         opcion = StdIn.readString();
         switch (opcion){
+            //Muestra los instrumentos de cuerda.
             case "1" -> verTodo(this.instrumentosCuerda);
+            //Muestra los instrumentos de percusión.
             case "2" -> verTodo(this.instrumentosPercusion);
+            //Muestra los instrumentos de viento.
             case "3" -> verTodo(this.instrumentosViento);
-            case "4" -> {}
+            //Vuelve a la ventana anterior.
+            case "4" -> {return;}
+            //Opción invalida.
             default -> System.out.println("Opción Invalida, intente nuevamente.");
         }
     }
@@ -367,6 +397,7 @@ public class SistemaImpl implements Sistema{
             y los imprime.
              */
             switch (instrumento.getNombre()) {
+                //Muestra los instrumentos de cuerda.
                 case "Guitarra", "Bajo", "Violin", "Arpa" -> {
                     Cuerda cuerda = (Cuerda) instrumento;
                     inventario.append("Código: ").append(cuerda.getCodigo()).append("\n");
@@ -380,6 +411,7 @@ public class SistemaImpl implements Sistema{
                     inventario.append("==================================================\n");
                     System.out.println(inventario);
                 }
+                //Muestra los instrumentos de percusión.
                 case "Bongo", "Cajon", "Campanas", "Tubulares", "Bombo" -> {
                     Percusion percusion = (Percusion) instrumento;
                     inventario.append("Código: ").append(percusion.getCodigo()).append("\n");
@@ -392,6 +424,7 @@ public class SistemaImpl implements Sistema{
                     inventario.append("==================================================\n");
                     System.out.println(inventario);
                 }
+                //Muestra los instrumentos de viento.
                 case "Trompeta", "Saxofon", "Clarinete", "Flauta Traversa" -> {
                     Viento viento = (Viento) instrumento;
                     inventario.append("Código: ").append(viento.getCodigo()).append("\n");
@@ -411,7 +444,9 @@ public class SistemaImpl implements Sistema{
      */
     @Override
     public boolean cierre(boolean estado) {
+        //Mensaje de despedida.
         System.out.println("Hasta luego, vuelva pronto!");
+        //Retorna falso.
         return !estado;
     }
 
@@ -487,6 +522,11 @@ public class SistemaImpl implements Sistema{
 
         //Registro del código.
         code = StdIn.readString();
+        //Valida el código ingresado.
+        if(!totalInstrumentos.validarCodigo(code)){
+            System.out.println("Código invalido o no existente, intente nuevamente.");
+            return;
+        }
         //Realización de la venta.
         this.venderInstrumentoImpl(code);
     }
