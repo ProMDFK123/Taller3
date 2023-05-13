@@ -54,9 +54,26 @@ public class Utils {
      * @return true si esta vacía, false en caso contrario.
      */
     public static boolean listaVacia(ListaInstrumento lista){
-        if(lista.getCantInstrumentos()==0){
-            return true;
+        return lista.getCantInstrumentos() == 0;
+    }
+
+    /**
+     * Método que valida que un valor númerico sea mayor a 0.
+     * @param valorNumerico - número a validar.
+     */
+    public static void validarNumeros(int valorNumerico){
+        if(valorNumerico<=0){
+            throw new IllegalArgumentException("El valor no puede ser menor o igual a 0.");
         }
-        return false;
+    }
+
+    /**
+     * Método que valida que un atributo de texto no este vacío.
+     * @param string - Texto a validar.
+     */
+    public static void validarString(String string){
+        if(string=="null" || string.length()==0){
+            throw new IllegalArgumentException("Este campo debe ser llenado.");
+        }
     }
 }
