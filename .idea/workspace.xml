@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="v4.2.0">
-      <change afterPath="$PROJECT_DIR$/src/system/Utils.java" afterDir="false" />
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="v5.2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csv/.~lock.instrumentos.csv#" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv/.~lock.instrumentos.csv#" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/csv/instrumentos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv/instrumentos.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/SistemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -274,15 +270,39 @@
       <option name="project" value="LOCAL" />
       <updated>1683556897573</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="v5.0.0">
+      <created>1683987038688</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683987038688</updated>
+    </task>
+    <task id="LOCAL-00032" summary="v5.0.1">
+      <created>1683987490778</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683987490778</updated>
+    </task>
+    <task id="LOCAL-00033" summary="v5.1.0">
+      <created>1683987502023</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683987502024</updated>
+    </task>
+    <task id="LOCAL-00034" summary="v5.2.0">
+      <created>1683995445040</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1683995445040</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="diagrama de clases v0.1.0" />
-    <MESSAGE value="diagrama de clases v0.1.1" />
-    <MESSAGE value="diagrama de clases v0.1.2" />
-    <MESSAGE value="instrumento &amp; array" />
     <MESSAGE value="instrumentos v1.0.0" />
     <MESSAGE value="instrumentos v2.0.0" />
     <MESSAGE value="instrumentos v2.1.0" />
@@ -304,7 +324,11 @@
     <MESSAGE value="v4.0.0" />
     <MESSAGE value="v4.1.0" />
     <MESSAGE value="v4.2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v4.2.0" />
+    <MESSAGE value="v5.0.0" />
+    <MESSAGE value="v5.0.1" />
+    <MESSAGE value="v5.1.0" />
+    <MESSAGE value="v5.2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v5.2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

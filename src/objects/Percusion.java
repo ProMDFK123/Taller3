@@ -1,5 +1,7 @@
 package objects;
 
+import system.Utils;
+
 public class Percusion extends Instrumento{
     private final String tipoPercusion;
     private final String altura;
@@ -17,7 +19,11 @@ public class Percusion extends Instrumento{
      */
     public Percusion(String codigo, int precio, int stock, String nombre, String material, String tipoPercusion, String altura) {
         super(codigo, precio, stock, nombre, material);
+
+        try{Utils.validarString(tipoPercusion);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.tipoPercusion=tipoPercusion;
+
+        try{Utils.validarString(altura);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.altura=altura;
     }
 
