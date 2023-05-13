@@ -91,24 +91,4 @@ public class ListaInstrumento {
      * @return el instrumento en la posición dada.
      */
     public Instrumento buscar(int posicion){return this.instrumentos[posicion];}
-
-    /**
-     * Método que valida el código único ingresado.
-     * @param codigo a validar.
-     * @return true si el código es correcto, false en caso contrario.
-     */
-    public boolean validarCodigo(String codigo){
-        //Recorre la lista.
-        for(int i=0;i<this.cantInstrumentos;i++){
-            //Instrumento auxiliar.
-            Instrumento aux = this.instrumentos[i];
-            //Comprueba si el código del instrumento auxiliar es igual al código ingresado.
-            if (aux.getCodigo().equals(codigo)){
-                //El código ingresado existe en la lista, por lo tanto, el código es válido.
-                return true;
-            }
-        }
-        //Se recorrió toda la lista y el código no es válido.
-        return false;
-    }
 }
