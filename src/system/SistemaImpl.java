@@ -289,7 +289,7 @@ public class SistemaImpl implements Sistema{
             //Mostrar un único instrumento dado su código.
             case "3" -> verEspecifico(this.totalInstrumentos);
             //Vuelve a la ventana anterior.
-            case "4" -> {return;}
+            case "4" -> {}
             //Opción invalida.
             default -> System.out.println("Opción invalida, intente nuevamente.");
         }
@@ -395,7 +395,7 @@ public class SistemaImpl implements Sistema{
             //Muestra los instrumentos de viento.
             case "3" -> verTodo(this.instrumentosViento);
             //Vuelve a la ventana anterior.
-            case "4" -> {return;}
+            case "4" -> {}
             //Opción invalida.
             default -> System.out.println("Opción Invalida, intente nuevamente.");
         }

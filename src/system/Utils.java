@@ -72,7 +72,7 @@ public class Utils {
      * @param string - Texto a validar.
      */
     public static void validarString(String string){
-        if(string=="null" || string.length()==0){
+        if(string.equals("null") || string.length()==0){
             throw new IllegalArgumentException("Este campo debe ser llenado.");
         }
     }
