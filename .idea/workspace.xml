@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="v4.1.0">
+    <list default="true" id="bc886cb8-6afa-4ceb-b4d4-51c8cd974e52" name="Changes" comment="v4.2.0">
+      <change afterPath="$PROJECT_DIR$/src/system/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/contenedores/ListaInstrumento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csv/.~lock.instrumentos.csv#" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv/.~lock.instrumentos.csv#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/csv/instrumentos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/csv/instrumentos.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/SistemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/SistemaImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -264,12 +267,18 @@
       <option name="project" value="LOCAL" />
       <updated>1683044196540</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="v4.2.0">
+      <created>1683556897573</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1683556897573</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="modelo de dominio" />
     <MESSAGE value="diagrama de clases v0.1.0" />
     <MESSAGE value="diagrama de clases v0.1.1" />
     <MESSAGE value="diagrama de clases v0.1.2" />
@@ -294,7 +303,8 @@
     <MESSAGE value="v3.2.2" />
     <MESSAGE value="v4.0.0" />
     <MESSAGE value="v4.1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v4.1.0" />
+    <MESSAGE value="v4.2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v4.2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
