@@ -1,5 +1,7 @@
 package objects;
 
+import system.Utils;
+
 /**
  * Clase que instancia instrumentos de cuerda.
  */
@@ -24,8 +26,14 @@ public class Cuerda extends Instrumento{
      */
     public Cuerda(String codigo, int precio, int stock, String nombre, String material, String tipoCuerda, int cantidadCuerdas, String tipo) {
         super(codigo, precio, stock, nombre, material);
+
+        try{Utils.validarString(tipoCuerda);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.tipoCuerda=tipoCuerda;
+
+        try{Utils.validarNumeros(cantidadCuerdas);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.cantidadCuerdas=cantidadCuerdas;
+
+        try{Utils.validarString(tipo);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.tipo=tipo;
     }
 
