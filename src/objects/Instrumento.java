@@ -1,5 +1,7 @@
 package objects;
 
+import system.Utils;
+
 /**
  * Clase para generación de instrumentos.
  */
@@ -24,10 +26,21 @@ public class Instrumento {
      * @param material de fabricación.
      */
     public Instrumento(String codigo, int precio, int stock, String nombre, String material) {
+        //Valida el código ingresado
+        try{Utils.validarCodigo(codigo);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
+        try{Utils.validarString(codigo);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.codigo = codigo;
+
+        try{Utils.validarNumeros(precio);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.precio = precio;
+
+        try{Utils.validarNumeros(precio);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.stock = stock;
+
+        try{Utils.validarString(nombre);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.nombre = nombre;
+
+        try{Utils.validarString(material);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.material = material;
     }
 
@@ -74,6 +87,7 @@ public class Instrumento {
      * @param stock - Nuevo valor del stock.
      */
     public void setStock(int stock) {
+        try{Utils.validarNumeros(stock);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.stock = stock;
     }
 }
