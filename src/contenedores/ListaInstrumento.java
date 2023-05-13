@@ -1,6 +1,7 @@
 package contenedores;
 
 import objects.Instrumento;
+import system.Utils;
 
 /**
  * Clase que genera listas de instrumentos.
@@ -19,6 +20,7 @@ public class ListaInstrumento {
      * @param maximo capacidad maxima de la lista.
      */
     public ListaInstrumento(int maximo) {
+        try{Utils.validarNumeros(maximo);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
         this.maximo = maximo;
         this.instrumentos = new Instrumento[maximo];
         this.cantInstrumentos=0;
@@ -90,5 +92,8 @@ public class ListaInstrumento {
      * @param posicion a encontrar.
      * @return el instrumento en la posición dada.
      */
-    public Instrumento buscar(int posicion){return this.instrumentos[posicion];}
+    public Instrumento buscar(int posicion){
+        try{Utils.validarNumeros(posicion);}catch (IllegalArgumentException ex){System.out.println("Ha ocurrido un error.");}
+        return this.instrumentos[posicion];
+    }
 }
